@@ -1,18 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://5cti2kvbpr7r"]
+[gd_scene load_steps=4 format=3 uid="uid://5cti2kvbpr7r"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_dgcde"]
 [ext_resource type="Texture2D" uid="uid://dqs7vv67w4vwd" path="res://menu_fondo.jpg" id="2_vau13"]
+
+[sub_resource type="FontVariation" id="FontVariation_52ae2"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_dgcde")
 
 [node name="Titulo" type="Label" parent="."]
-offset_left = 692.0
-offset_top = 288.0
-offset_right = 919.0
-offset_bottom = 364.0
+offset_left = 566.0
+offset_top = 260.0
+offset_right = 967.0
+offset_bottom = 336.0
 theme_type_variation = &"HeaderLarge"
-text = "Prueba 2D
+theme_override_colors/font_color = Color(0.317647, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_52ae2")
+theme_override_font_sizes/font_size = 24
+text = "El reino perdido
 "
 horizontal_alignment = 1
 
@@ -51,10 +56,10 @@ text = "Salir
 
 [node name="MenuFondo" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(591, 296)
-scale = Vector2(1.11426, 0.70459)
+position = Vector2(578, 283)
+scale = Vector2(1.14014, 0.70459)
 texture = ExtResource("2_vau13")
 
 [connection signal="pressed" from="BotonInicio" to="." method="_on_boton_inicio_pressed"]
-[connection signal="pressed" from="BotonSalir" to="." method="_on_boton_salir_pressed"]
 [connection signal="pressed" from="BotonSalir" to="." method="_on_boton_inicio_pressed"]
+[connection signal="pressed" from="BotonSalir" to="." method="_on_boton_salir_pressed"]
