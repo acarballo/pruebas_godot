@@ -16,7 +16,7 @@ offset_bottom = 336.0
 theme_type_variation = &"HeaderLarge"
 theme_override_colors/font_color = Color(0.317647, 0, 0, 1)
 theme_override_fonts/font = SubResource("FontVariation_52ae2")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 34
 text = "El reino perdido
 "
 horizontal_alignment = 1
