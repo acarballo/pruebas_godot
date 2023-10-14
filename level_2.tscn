@@ -1,7 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://p8do26rpkuxn"]
+[gd_scene load_steps=7 format=3 uid="uid://p8do26rpkuxn"]
 
 [ext_resource type="Texture2D" uid="uid://1aengt0ew2s3" path="res://monochrome_tilemap_transparent_packed.png" id="1_35i7n"]
-[ext_resource type="Script" path="res://Player.gd" id="2_qwblp"]
+[ext_resource type="Script" path="res://level_2.gd" id="1_nhalt"]
+[ext_resource type="PackedScene" uid="uid://m6wy8asrastv" path="res://player.tscn" id="2_7hc86"]
+[ext_resource type="PackedScene" uid="uid://jfk2ke70s1a3" path="res://door.tscn" id="3_4gms0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hbry2"]
 resource_name = "tilemap"
@@ -1280,70 +1282,14 @@ texture = ExtResource("1_35i7n")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_hbry2")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wmn7e"]
-atlas = ExtResource("1_35i7n")
-region = Rect2(0, 192, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wamq6"]
-atlas = ExtResource("1_35i7n")
-region = Rect2(0, 208, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_eajv7"]
-atlas = ExtResource("1_35i7n")
-region = Rect2(0, 224, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3ng43"]
-atlas = ExtResource("1_35i7n")
-region = Rect2(0, 240, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_reja8"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wmn7e")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wamq6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_eajv7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3ng43")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gjlhe"]
-radius = 4.0
-height = 10.0
-
 [node name="level_2" type="Node2D"]
+script = ExtResource("1_nhalt")
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(61, 64)
 tile_set = SubResource("TileSet_kseg4")
 format = 2
 layer_0/tile_data = PackedInt32Array(1179644, 1048576, 5, 1179645, 1048576, 5, 1179646, 1048576, 5, 1179647, 1048576, 5, 1114112, 1048576, 5, 1114113, 1048576, 5, 1114114, 1048576, 5, 1114115, 1048576, 5, 1114116, 1048576, 5, 1114117, 1048576, 5, 1114118, 1048576, 5, 1114119, 1048576, 5, 1114120, 1048576, 5, 1114121, 1048576, 5, 1114122, 1048576, 5, 1114123, 1048576, 5, 1114124, 1048576, 5, 1114125, 1048576, 5, 1048590, 1048576, 5, 1048591, 1048576, 5, 1048592, 1048576, 5, 1048593, 1048576, 5, 1048594, 1048576, 5, 1048595, 1048576, 5, 1048596, 1048576, 5, 1114133, 1048576, 5, 1114134, 1048576, 5, 1114135, 1048576, 5, 1114136, 1048576, 5, 1114137, 1048576, 5, 1114138, 1048576, 5, 1114139, 1048576, 5, 1114140, 1048576, 5, 1114141, 1048576, 5, 1114142, 1048576, 5, 1114143, 1048576, 5, 1114144, 1048576, 5, 1114145, 1048576, 5, 1114146, 1048576, 5, 1114147, 1048576, 5, 1114148, 1048576, 5, 1114149, 1048576, 5, 1114150, 1048576, 5, 1114151, 1048576, 5, 1114152, 1048576, 5, 1114153, 1048576, 5, 1114160, 458752, 5, 1179696, 589824, 4, 1179697, 1048576, 5, 1179698, 1048576, 5, 1179699, 1048576, 5, 1179700, 1048576, 5, 1179701, 1048576, 5, 1179702, 1048576, 5, 1179703, 1048576, 5, 1179704, 1048576, 5, 1179705, 1048576, 5, 1179706, 1048576, 5, 1179707, 1048576, 5, 1179708, 1048576, 5, 1179709, 1048576, 5, 1179710, 1048576, 5, 1245246, 1048576, 5, 1245247, 1048576, 5, 1245248, 1048576, 5, 1245249, 1048576, 5, 1245250, 1048576, 5, 1245251, 1048576, 5, 1245252, 1048576, 5, 983069, 458752, 4, 1048605, 458752, 5, 983070, 524288, 4, 1048606, 524288, 5, 983071, 589824, 4, 1048607, 589824, 5, 1048624, 458752, 4, 1048625, 524288, 4, 1114161, 524288, 5, 1048626, 589824, 4, 1114162, 589824, 5, 1179694, 458752, 4, 1179695, 524288, 4, 1245231, 524288, 5, 1245232, 589824, 5, 1245228, 458752, 4, 1310764, 458752, 5, 1245229, 524288, 4, 1310765, 524288, 5, 1310766, 589824, 5, 1245230, 524288, 5, 1114154, 786432, 5, 1179690, 786432, 6, 1245226, 786432, 6, 1310762, 786432, 6, 1376299, 720896, 5)
-
-[node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(61, 64)
-script = ExtResource("2_qwblp")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
-position = Vector2(182, 185)
-sprite_frames = SubResource("SpriteFrames_reja8")
-animation = &"idle"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(182, 188)
-shape = SubResource("CapsuleShape2D_gjlhe")
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(183, 189)
-zoom = Vector2(3, 3)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -1352,3 +1298,11 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "Level 2
 "
+
+[node name="Player" parent="." instance=ExtResource("2_7hc86")]
+position = Vector2(282, 394)
+
+[node name="Door" parent="." instance=ExtResource("3_4gms0")]
+position = Vector2(201, 328)
+
+[connection signal="body_entered" from="Door" to="." method="_on_door_body_entered"]
