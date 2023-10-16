@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bmuresdm1siik"]
+[gd_scene load_steps=8 format=3 uid="uid://bmuresdm1siik"]
 
 [ext_resource type="Script" path="res://level_1.gd" id="1_2ty16"]
 [ext_resource type="Texture2D" uid="uid://1aengt0ew2s3" path="res://monochrome_tilemap_transparent_packed.png" id="2_iryjj"]
 [ext_resource type="PackedScene" uid="uid://m6wy8asrastv" path="res://player.tscn" id="3_ad2jq"]
 [ext_resource type="PackedScene" uid="uid://jfk2ke70s1a3" path="res://door.tscn" id="4_xra8s"]
+[ext_resource type="PackedScene" uid="uid://dto8clwbiaiwl" path="res://gem.tscn" id="5_exfib"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hbry2"]
 resource_name = "tilemap"
@@ -1320,5 +1321,17 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Door" parent="." instance=ExtResource("4_xra8s")]
 position = Vector2(1140, 185)
+
+[node name="Gem" parent="." instance=ExtResource("5_exfib")]
+position = Vector2(701, 233)
+
+[node name="Gem2" parent="." instance=ExtResource("5_exfib")]
+position = Vector2(806, 204)
+
+[node name="Gem3" parent="." instance=ExtResource("5_exfib")]
+position = Vector2(438, 282)
+
+[node name="Gem4" parent="." instance=ExtResource("5_exfib")]
+position = Vector2(1085, 233)
 
 [connection signal="body_entered" from="Door" to="." method="_on_door_body_entered"]

@@ -24,17 +24,22 @@ func _physics_process(delta):
 	var direction = Input.get_axis("move_left", "move_right")
 	if direction:
 		velocity.x = direction * SPEED
-		$AnimatedSprite2D.play("run");
+		
+		if not is_on_floor():
+			$AnimatedSprite2D.play("jump"); # no hace animacion
+		else: 	
+			$AnimatedSprite2D.play("run")
+			
 		if direction == -1:
 			$AnimatedSprite2D.flip_h = true
 		else:
 			$AnimatedSprite2D.flip_h = false
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-		$AnimatedSprite2D.play("idle");
+		$AnimatedSprite2D.play("idle") 
 
-	if not is_on_floor():
-		print_debug("jump")
-		$AnimatedSprite2D.play("jump"); # no hace animacion
 
+
+
+	# print_debug($AnimatedSprite2D.animation)
 	move_and_slide()

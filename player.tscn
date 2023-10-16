@@ -110,7 +110,7 @@ script = ExtResource("1_scdic")
 position = Vector2(-61, -67)
 sprite_frames = SubResource("SpriteFrames_3gmw0")
 animation = &"jump"
-frame_progress = 0.83614
+frame_progress = 0.914336
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-61, -64)
