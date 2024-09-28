@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://m6wy8asrastv"]
+[gd_scene load_steps=17 format=3 uid="uid://m6wy8asrastv"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_scdic"]
 [ext_resource type="Texture2D" uid="uid://1aengt0ew2s3" path="res://monochrome_tilemap_transparent_packed.png" id="2_jvwg3"]
+[ext_resource type="AudioStream" uid="uid://cs8k1nl05grdd" path="res://jump.wav" id="3_7uq6l"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wmn7e"]
 atlas = ExtResource("2_jvwg3")
@@ -119,3 +120,6 @@ shape = SubResource("CapsuleShape2D_b3mvt")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-61, -67)
 zoom = Vector2(3, 3)
+
+[node name="JumpSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_7uq6l")

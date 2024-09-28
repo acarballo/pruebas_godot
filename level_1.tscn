@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://bmuresdm1siik"]
+[gd_scene load_steps=10 format=3 uid="uid://bmuresdm1siik"]
 
-[ext_resource type="Script" path="res://level_1.gd" id="1_2ty16"]
+[ext_resource type="Script" path="res://level.gd" id="1_x11v1"]
 [ext_resource type="Texture2D" uid="uid://1aengt0ew2s3" path="res://monochrome_tilemap_transparent_packed.png" id="2_iryjj"]
 [ext_resource type="PackedScene" uid="uid://m6wy8asrastv" path="res://player.tscn" id="3_ad2jq"]
+[ext_resource type="PackedScene" uid="uid://dh6nyvqqhvx" path="res://hud.tscn" id="4_dam1a"]
 [ext_resource type="PackedScene" uid="uid://jfk2ke70s1a3" path="res://door.tscn" id="4_xra8s"]
 [ext_resource type="PackedScene" uid="uid://dto8clwbiaiwl" path="res://gem.tscn" id="5_exfib"]
+[ext_resource type="AudioStream" uid="uid://2quuu0hm4djt" path="res://Menu Music.ogg" id="7_abvwn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hbry2"]
 resource_name = "tilemap"
@@ -1300,7 +1302,8 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_hbry2")
 
 [node name="Level_1" type="Node2D"]
-script = ExtResource("1_2ty16")
+script = ExtResource("1_x11v1")
+level_num = 1
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(61, 64)
@@ -1311,27 +1314,31 @@ layer_0/tile_data = PackedInt32Array(917514, 983040, 5, 917515, 1048576, 5, 9175
 [node name="Player" parent="." instance=ExtResource("3_ad2jq")]
 position = Vector2(321, 329)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Label" type="Label" parent="CanvasLayer"]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Level 1"
-metadata/_edit_use_anchors_ = true
+[node name="Hud" parent="." instance=ExtResource("4_dam1a")]
 
 [node name="Door" parent="." instance=ExtResource("4_xra8s")]
 position = Vector2(1140, 185)
+level = "res://level_2.tscn"
 
-[node name="Gem" parent="." instance=ExtResource("5_exfib")]
+[node name="Gems" type="Node" parent="."]
+
+[node name="Gem" parent="Gems" instance=ExtResource("5_exfib")]
 position = Vector2(701, 233)
 
-[node name="Gem2" parent="." instance=ExtResource("5_exfib")]
+[node name="Gem2" parent="Gems" instance=ExtResource("5_exfib")]
 position = Vector2(806, 204)
 
-[node name="Gem3" parent="." instance=ExtResource("5_exfib")]
+[node name="Gem3" parent="Gems" instance=ExtResource("5_exfib")]
 position = Vector2(438, 282)
 
-[node name="Gem4" parent="." instance=ExtResource("5_exfib")]
+[node name="Gem4" parent="Gems" instance=ExtResource("5_exfib")]
 position = Vector2(1085, 233)
 
-[connection signal="body_entered" from="Door" to="." method="_on_door_body_entered"]
+[node name="Gem5" parent="Gems" instance=ExtResource("5_exfib")]
+position = Vector2(745, 192)
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_abvwn")
+autoplay = true
+
+[connection signal="player_entered" from="Door" to="." method="_on_door_player_entered"]
